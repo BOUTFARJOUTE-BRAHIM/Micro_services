@@ -19,6 +19,7 @@ stages:
           - checkout: self
           - script: |
              docker build -t imagefront ./frontend
-
+             sleep 10
+             docker images
 
 
