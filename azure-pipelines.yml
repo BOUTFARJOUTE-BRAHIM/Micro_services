@@ -21,5 +21,10 @@ stages:
               cd frontend
               npm install
               npm run build
+              
+      - job: deploy_docker
+        steps:
+          - checkout: self
+          - script: |
               sleep 10
               docker build -t imagefront .
