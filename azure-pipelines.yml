@@ -4,16 +4,21 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  - main
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+
+  - stage: build_plus_test
+    jobs:
+      - job: buildi_image_front
+        steps:
+          - checkout: self
+          - script: |
+             docker build -t imagefront ./frontend
+
+
+
