@@ -10,6 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 
+
 stages:
 
   - stage: build_plus_test
@@ -18,6 +19,7 @@ stages:
         steps:
           - checkout: self
           - script: |
+              cd $(BABATA)
               cd frontend
               npm install
               npm run build
