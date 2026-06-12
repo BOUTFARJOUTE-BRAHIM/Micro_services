@@ -23,12 +23,16 @@ stages:
               npm run build
               
       - job: test_unitaire
+        dependsOn: buildi_image_front
+
         steps:
           - script: |
               cd frontend
+              npm install
               npm run test
 
       - job: deploy_docker
+        dependsOn: test_unitaire
         steps:
           - checkout: self
           - script: |
