@@ -19,7 +19,7 @@ stages:
         steps:
           - checkout: self
           - script: |
-              touch $(BABATA)
+              touch $(BATATA)
               ls .
               cd frontend
               npm install
