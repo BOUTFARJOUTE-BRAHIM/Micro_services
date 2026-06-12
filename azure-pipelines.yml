@@ -22,6 +22,12 @@ stages:
               npm install
               npm run build
               
+      - job: test_unitaire
+        steps:
+          - script: |
+              cd frontend
+              npm run test
+
       - job: deploy_docker
         steps:
           - checkout: self
